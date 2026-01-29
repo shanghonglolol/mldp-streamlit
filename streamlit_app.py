@@ -49,12 +49,13 @@ st.markdown("""
     margin: 10px 0;
 }
     .info-box {
-        background-color: #e7f3ff;
-        border: 1px solid #0066cc;
-        border-radius: 10px;
-        padding: 15px;
-        margin: 10px 0;
-    }
+    background-color: #e7f3ff;
+    color: #004085;            
+    border: 1px solid #0066cc;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+}
 </style>
 """, unsafe_allow_html=True)
 
