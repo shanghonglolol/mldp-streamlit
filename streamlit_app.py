@@ -42,12 +42,12 @@ st.markdown("""
         margin: 20px 0;
     }
     .tips-box {
-        background-color: #fff3cd;
-        border: 1px solid #ffc107;
-        border-radius: 10px;
-        padding: 15px;
-        margin: 10px 0;
-    }
+    background-color: #f8d7da;
+    border: 1px solid #dc3545;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+}
     .info-box {
         background-color: #e7f3ff;
         border: 1px solid #0066cc;
