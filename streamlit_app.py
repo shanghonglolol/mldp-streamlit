@@ -332,7 +332,7 @@ if model_loaded:
                     <div class="good-wine">
                         <h1 style="color: #155724; margin: 0;">✅ GOOD WINE</h1>
                         <h3 style="color: #155724;">Quality Score ≥ 6</h3>
-                        <p style="font-size: 1.2rem;">Confidence: {:.1f}%</p>
+                        <p style="font-size: 1.2rem; color: #000000;">Confidence: {:.1f}%</p>
                     </div>
                     """.format(probability[1]*100), unsafe_allow_html=True)
                     st.balloons()
@@ -341,7 +341,7 @@ if model_loaded:
                     <div class="poor-wine">
                         <h1 style="color: #721c24; margin: 0;">❌ POOR WINE</h1>
                         <h3 style="color: #721c24;">Quality Score &lt; 6</h3>
-                        <p style="font-size: 1.2rem;">Confidence: {:.1f}%</p>
+                        <p style="font-size: 1.2rem; color: #000000;">Confidence: {:.1f}%</p>
                     </div>
                     """.format(probability[0]*100), unsafe_allow_html=True)
             
