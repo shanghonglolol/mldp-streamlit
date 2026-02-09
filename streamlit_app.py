@@ -42,20 +42,19 @@ st.markdown("""
         margin: 20px 0;
     }
     .tips-box {
-    background-color: #f8d7da;
-    border: 1px solid #dc3545;
-    border-radius: 10px;
-    padding: 15px;
-    margin: 10px 0;
-}
+        background-color: #fff3cd;
+        border: 1px solid #ffc107;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 10px 0;
+    }
     .info-box {
-    background-color: #e7f3ff;
-    color: #004085;            
-    border: 1px solid #0066cc;
-    border-radius: 10px;
-    padding: 15px;
-    margin: 10px 0;
-}
+        background-color: #e7f3ff;
+        border: 1px solid #0066cc;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 10px 0;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -94,19 +93,34 @@ if model_loaded:
         
         st.markdown("---")
         
-        st.markdown("### 🍷 Tips for Good Wine")
+        st.markdown("### ✅ Ideal Values (Good Wine)")
         st.markdown("""
-        **✅ What makes GOOD wine:**
-        - **Alcohol > 11%** - Higher alcohol often means better quality
-        - **Volatile Acidity < 0.4** - Less vinegar taste
-        - **Higher Sulphates** - Better preservation
-        - **Lower Chlorides** - Less salty taste
+        | Property | Ideal Range |
+        |----------|-------------|
+        | Alcohol | **11 – 14%** |
+        | Volatile Acidity | **< 0.4 g/L** |
+        | Sulphates | **0.5 – 1.0 g/L** |
+        | Citric Acid | **0.3 – 0.6 g/L** |
+        | Chlorides | **< 0.06 g/L** |
+        | Residual Sugar | **1.5 – 4.0 g/L** |
+        | Fixed Acidity | **6 – 9 g/L** |
+        | pH | **3.1 – 3.4** |
+        | Free SO₂ | **15 – 40 mg/L** |
+        | Total SO₂ | **30 – 120 mg/L** |
+        | Density | **0.992 – 0.997** |
+        """)
         
-        **❌ What makes POOR wine:**
-        - **Low alcohol** (< 10%)
-        - **High volatile acidity** (> 0.6) - Vinegar smell
-        - **Very high sugar** - Unbalanced taste
-        - **High chlorides** - Salty/bitter taste
+        st.markdown("---")
+        
+        st.markdown("### ❌ Warning Signs (Poor Wine)")
+        st.markdown("""
+        | Property | Poor Range |
+        |----------|------------|
+        | Alcohol | **< 10%** |
+        | Volatile Acidity | **> 0.6 g/L** |
+        | Sulphates | **< 0.4 g/L** |
+        | Chlorides | **> 0.1 g/L** |
+        | Total SO₂ | **> 150 mg/L** |
         """)
         
         st.markdown("---")
