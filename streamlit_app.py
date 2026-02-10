@@ -172,7 +172,7 @@ if model_loaded:
             st.session_state['pH'] = 3.50
             st.session_state['residual_sugar'] = 8.0
             st.session_state['chlorides'] = 0.15
-            st.session_state['density'] = 0.999995
+            st.session_state['density'] = 1
             st.session_state['alcohol'] = 9.0
             st.session_state['free_sulfur_dioxide'] = 5.0
             st.session_state['total_sulfur_dioxide'] = 200.0
