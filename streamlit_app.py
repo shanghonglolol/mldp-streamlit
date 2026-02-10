@@ -145,6 +145,42 @@ if model_loaded:
     st.markdown("---")
     st.header("📊 Enter Wine Chemical Properties")
     
+    # Preset buttons
+    st.markdown("#### 🔄 Quick Presets")
+    preset_col1, preset_col2, preset_col3 = st.columns([1, 1, 2])
+    
+    with preset_col1:
+        if st.button("✅ Good Wine Example", use_container_width=True):
+            st.session_state['fixed_acidity'] = 7.0
+            st.session_state['volatile_acidity'] = 0.25
+            st.session_state['citric_acid'] = 0.35
+            st.session_state['pH'] = 3.20
+            st.session_state['residual_sugar'] = 2.5
+            st.session_state['chlorides'] = 0.04
+            st.session_state['density'] = 0.994
+            st.session_state['alcohol'] = 12.5
+            st.session_state['free_sulfur_dioxide'] = 30.0
+            st.session_state['total_sulfur_dioxide'] = 80.0
+            st.session_state['sulphates'] = 0.65
+            st.rerun()
+    
+    with preset_col2:
+        if st.button("❌ Poor Wine Example", use_container_width=True):
+            st.session_state['fixed_acidity'] = 7.0
+            st.session_state['volatile_acidity'] = 1.10
+            st.session_state['citric_acid'] = 0.0
+            st.session_state['pH'] = 3.50
+            st.session_state['residual_sugar'] = 8.0
+            st.session_state['chlorides'] = 0.15
+            st.session_state['density'] = 1.001
+            st.session_state['alcohol'] = 9.0
+            st.session_state['free_sulfur_dioxide'] = 5.0
+            st.session_state['total_sulfur_dioxide'] = 200.0
+            st.session_state['sulphates'] = 0.30
+            st.rerun()
+    
+    st.markdown("---")
+    
     # Three columns for inputs
     col1, col2, col3 = st.columns(3)
     
@@ -155,36 +191,40 @@ if model_loaded:
             "Fixed Acidity (g/L)",
             min_value=4.0,
             max_value=16.0,
-            value=7.0,
+            value=st.session_state.get('fixed_acidity', 7.0),
             step=0.1,
-            help="Primary acids in wine. Typical: 6-9 g/L"
+            help="Primary acids in wine. Typical: 6-9 g/L",
+            key='fixed_acidity'
         )
         
         volatile_acidity = st.slider(
             "Volatile Acidity (g/L)",
             min_value=0.1,
             max_value=1.5,
-            value=0.3,
+            value=st.session_state.get('volatile_acidity', 0.3),
             step=0.05,
-            help="⚠️ Keep below 0.4 for good wine! High = vinegar taste"
+            help="⚠️ Keep below 0.4 for good wine! High = vinegar taste",
+            key='volatile_acidity'
         )
         
         citric_acid = st.slider(
             "Citric Acid (g/L)",
             min_value=0.0,
             max_value=1.0,
-            value=0.3,
+            value=st.session_state.get('citric_acid', 0.3),
             step=0.05,
-            help="Adds freshness. Typical: 0.2-0.5 g/L"
+            help="Adds freshness. Typical: 0.2-0.5 g/L",
+            key='citric_acid'
         )
         
         pH = st.slider(
             "pH Level",
             min_value=2.7,
             max_value=4.0,
-            value=3.3,
+            value=st.session_state.get('pH', 3.3),
             step=0.05,
-            help="Wine acidity. Typical: 3.0-3.5"
+            help="Wine acidity. Typical: 3.0-3.5",
+            key='pH'
         )
 
     with col2:
@@ -194,36 +234,40 @@ if model_loaded:
             "Residual Sugar (g/L)",
             min_value=0.5,
             max_value=20.0,
-            value=2.5,
+            value=st.session_state.get('residual_sugar', 2.5),
             step=0.5,
-            help="Sugar left after fermentation. Dry wine: <4 g/L"
+            help="Sugar left after fermentation. Dry wine: <4 g/L",
+            key='residual_sugar'
         )
         
         chlorides = st.slider(
             "Chlorides (g/L)",
             min_value=0.01,
             max_value=0.2,
-            value=0.05,
+            value=st.session_state.get('chlorides', 0.05),
             step=0.01,
-            help="Salt content. Keep low (<0.1) for better quality"
+            help="Salt content. Keep low (<0.1) for better quality",
+            key='chlorides'
         )
         
         density = st.slider(
             "Density (g/cm³)",
             min_value=0.990,
             max_value=1.005,
-            value=0.996,
+            value=st.session_state.get('density', 0.996),
             step=0.001,
-            help="Wine density. Lower = more alcohol"
+            help="Wine density. Lower = more alcohol",
+            key='density'
         )
         
         alcohol = st.slider(
             "Alcohol (%)",
             min_value=8.0,
             max_value=15.0,
-            value=10.5,
+            value=st.session_state.get('alcohol', 10.5),
             step=0.1,
-            help="⭐ Higher alcohol (>11%) often = better quality!"
+            help="⭐ Higher alcohol (>11%) often = better quality!",
+            key='alcohol'
         )
 
     with col3:
@@ -233,27 +277,30 @@ if model_loaded:
             "Free Sulfur Dioxide (mg/L)",
             min_value=1.0,
             max_value=70.0,
-            value=15.0,
+            value=st.session_state.get('free_sulfur_dioxide', 15.0),
             step=1.0,
-            help="Prevents bacteria. Typical: 10-40 mg/L"
+            help="Prevents bacteria. Typical: 10-40 mg/L",
+            key='free_sulfur_dioxide'
         )
         
         total_sulfur_dioxide = st.slider(
             "Total Sulfur Dioxide (mg/L)",
             min_value=5.0,
             max_value=300.0,
-            value=45.0,
+            value=st.session_state.get('total_sulfur_dioxide', 45.0),
             step=5.0,
-            help="Total SO2. Keep under 150 mg/L"
+            help="Total SO2. Keep under 150 mg/L",
+            key='total_sulfur_dioxide'
         )
         
         sulphates = st.slider(
             "Sulphates (g/L)",
             min_value=0.2,
             max_value=1.5,
-            value=0.5,
+            value=st.session_state.get('sulphates', 0.5),
             step=0.05,
-            help="Wine preservative. Higher = better preservation"
+            help="Wine preservative. Higher = better preservation",
+            key='sulphates'
         )
 
     st.markdown("---")
