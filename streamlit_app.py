@@ -86,9 +86,16 @@ if model_loaded:
         
         st.markdown("### 🏆 About This App")
         st.markdown("""
-        This app uses **Random Forest** machine learning to predict wine quality.
+        **Model:** Random Forest Classifier
         
-        **Model Performance:**
+        **Dataset:** UCI Wine Quality (6,497 samples)
+        
+        **Key Techniques:**
+        - SMOTE (class balancing)
+        - Feature Engineering (8 new features)
+        - Hyperparameter Tuning
+        
+        **Performance:**
         - F1-Score: 0.87
         - Accuracy: 83%
         """)
